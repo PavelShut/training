@@ -1,7 +1,8 @@
 {
   "counts": {
-    ".yml": 2,
+    ".yml": 1,
     ".md": 1,
+    ".disabled": 1,
     "<noext>": 1,
     ".html": 1,
     ".json": 2,
@@ -15,6 +16,6 @@
     "src": 1,
     "tools": 1
   },
-  "generated": "2026-05-15T12:34:37.893Z",
+  "generated": "2026-05-15T12:39:36.443Z",
   "repo": "training"
 }
