@@ -152,4 +152,4 @@ function maybeCommit(files) {
     console.error('Error:', e);
     process.exit(1);
   }
-})();
+})();\n// trigger cartographer run
