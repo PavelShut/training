@@ -1,0 +1,8 @@
+#!/bin/sh
+# Run cartographer before commit and stage outputs. Be lenient: failures won't block commit.
+if command -v node >/dev/null 2>&1; then
+  node tools/cartographer.js analyze --out docs --depth 4 || true
+  git add docs/project-map.html docs/project-summary.json docs/project-summary.md || true
+fi
+exit 0
+
