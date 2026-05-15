@@ -8,7 +8,7 @@
     ".html": 1,
     ".json": 2,
     ".sh": 1,
-    ".js": 3
+    ".js": 4
   },
   "dirCounts": {
     ".copilot": 2,
@@ -18,8 +18,8 @@
     ".": 5,
     "scripts": 2,
     "src": 1,
-    "tools": 1
+    "tools": 2
   },
-  "generated": "2026-05-15T12:43:27.691Z",
+  "generated": "2026-05-15T12:45:55.898Z",
   "repo": "training"
 }

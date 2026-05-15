@@ -1,9 +1,9 @@
 # Project Summary: training
 
-Generated: 2026-05-15T12:43:27.691Z
+Generated: 2026-05-15T12:45:55.898Z
 
 ## File counts by extension
-- .js: 3
+- .js: 4
 - <noext>: 2
 - .ps1: 2
 - .json: 2
@@ -18,7 +18,7 @@ Generated: 2026-05-15T12:43:27.691Z
 - .copilot: 2
 - .githooks: 2
 - scripts: 2
+- tools: 2
 - .github\workflows: 1
 - src: 1
-- tools: 1
 - .github: 0
