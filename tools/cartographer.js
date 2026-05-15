@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 function usage() {
-  console.log('Usage: copilot-skill <map|summary|analyze> [--out <path>] [--depth N] [--commit]');
+  console.log('Usage: cartographer <map|summary|analyze> [--out <path>] [--depth N] [--commit]');
   process.exit(1);
 }
 
@@ -121,7 +121,7 @@ function maybeCommit(files) {
   try {
     const execSync = require('child_process').execSync;
     execSync('git add ' + files.map(f => `"${f}"`).join(' '), { stdio: 'inherit' });
-    execSync('git commit -m "chore: update copilot-skill outputs [ci skip]" || true', { stdio: 'inherit' });
+    execSync('git commit -m "chore: update cartographer outputs [ci skip]" || true', { stdio: 'inherit' });
     execSync('git push', { stdio: 'inherit' });
     console.log('Committed and pushed outputs.');
   } catch (e) {
@@ -143,16 +143,7 @@ function maybeCommit(files) {
       const jsonOut = path.join(outPath, 'project-summary.json');
       const mdOut = path.join(outPath, 'project-summary.md');
       writeFileSafely(jsonOut, JSON.stringify(summary, null, 2));
-      const md = `# Project Summary: ${escapeLabel(summary.repo)}
-
-Generated: ${summary.generated}
-
-## File counts by extension
-${Object.entries(summary.counts).sort((a,b)=>b[1]-a[1]).map(([k,v]) => `- ${k}: ${v}`).join('\n')}
-
-## Top directories by file count
-${Object.entries(summary.dirCounts).sort((a,b)=>b[1]-a[1]).slice(0,20).map(([k,v]) => `- ${k}: ${v}`).join('\n')}
-`;
+      const md = `# Project Summary: ${escapeLabel(summary.repo)}\n\nGenerated: ${summary.generated}\n\n## File counts by extension\n${Object.entries(summary.counts).sort((a,b)=>b[1]-a[1]).map(([k,v]) => `- ${k}: ${v}`).join('\n')}\n\n## Top directories by file count\n${Object.entries(summary.dirCounts).sort((a,b)=>b[1]-a[1]).slice(0,20).map(([k,v]) => `- ${k}: ${v}`).join('\n')}\n`;
       writeFileSafely(mdOut, md);
       if (doCommit) maybeCommit([jsonOut, mdOut]);
     }

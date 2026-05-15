@@ -1,4 +1,5 @@
-name: Copilot Skill
+name: Cartographer
+name: Cartographer
 on:
   workflow_dispatch:
     inputs:
@@ -16,7 +17,7 @@ on:
         default: 'false'
 
 jobs:
-  run-skill:
+  run-cartographer:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,9 +31,9 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Run Copilot Skill
+      - name: Run Cartographer
         run: |
-          node tools/copilot-skill.js ${{ github.event.inputs.task }} --out docs --depth ${{ github.event.inputs.depth }} $([[ "${{ github.event.inputs.commit }}" == "true" ]] && echo --commit || true)
+          node tools/cartographer.js ${{ github.event.inputs.task }} --out docs --depth ${{ github.event.inputs.depth }} $([[ "${{ github.event.inputs.commit }}" == "true" ]] && echo --commit || true)
 
       - name: Commit outputs (if changed)
         if: ${{ github.event.inputs.commit == 'true' }}
@@ -41,7 +42,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs || true
           if ! git diff --staged --quiet; then
-            git commit -m "chore: update copilot-skill outputs [ci skip]" || true
+            git commit -m "chore: update cartographer outputs [ci skip]" || true
             git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes"

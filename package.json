@@ -1,11 +1,11 @@
 {
-  "name": "training-copilot-skill",
+  "name": "training-cartographer",
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "copilot-skill": "tools/copilot-skill.js"
+    "cartographer": "tools/cartographer.js"
   },
   "scripts": {
-    "copilot-skill": "node tools/copilot-skill.js"
+    "cartographer": "node tools/cartographer.js"
   }
 }
