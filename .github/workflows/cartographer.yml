@@ -1,6 +1,19 @@
 name: Cartographer
 name: Cartographer
 on:
+  push:
+    paths:
+      - 'src/**'
+      - 'tools/**'
+      - 'index.html'
+      - 'package.json'
+      - '.github/workflows/cartographer.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'tools/**'
+      - 'index.html'
+      - 'package.json'
   workflow_dispatch:
     inputs:
       task:
