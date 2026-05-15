@@ -10,7 +10,14 @@ Generate
 
 Placement & naming
 - Place the generated file at: docs/project-map.json or docs/project-map.yml
-- The assistant looks for docs/project-map.{json,yml,yaml} when analyzing the repo.
+- Cartographer also commonly emits an HTML visualization; place it at docs/project-map.html if present.
+- The assistant looks for docs/project-map.{json,yml,yaml,html} when analyzing the repo.
+
+Using Cartographer HTML (mermaid)
+- If docs/project-map.html exists, the assistant will extract the mermaid graph block (a <div class="mermaid">...</div>) and parse node and edge lines.
+- Expected node label format in mermaid: n1["NAME\\nPATH"] where NAME is a human label and PATH is the filesystem path.
+- Expected edge format: n1 --> n2 (the assistant will infer relationships: contains when paths imply containment, otherwise depends_on).
+- Keep the mermaid graph focused: high-level modules and important files are sufficient for tool-driven analysis.
 
 Minimal expectations
 - Nodes: name, path, type (module/library/service)
