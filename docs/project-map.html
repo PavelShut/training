@@ -5,26 +5,40 @@
 </head>
 <body>
   <h1>Project Map - training</h1>
-  <p>Generated: 2026-05-15T09:04:13.895Z</p>
+  <p>Generated: 2026-05-15T12:34:37.884Z</p>
   <div class="mermaid">
     graph TB
     n1["training\n."]
-    n2[".github\n.github"]
-    n3["workflows\n.github\workflows"]
-    n4["cartographer.yml\n.github\workflows\cartographer.yml"]
-    n5[".gitignore\n.gitignore"]
-    n6["index.html\nindex.html"]
-    n7["package.json\npackage.json"]
-    n8["tools\ntools"]
-    n9["cartographer.js\ntools\cartographer.js"]
+    n2[".copilot\n.copilot"]
+    n3["trello-config.yml\n.copilot\trello-config.yml"]
+    n4["trello-instructions.md\n.copilot\trello-instructions.md"]
+    n5[".github\n.github"]
+    n6["workflows\n.github\workflows"]
+    n7["cartographer.yml\n.github\workflows\cartographer.yml"]
+    n8[".gitignore\n.gitignore"]
+    n9["index.html\nindex.html"]
+    n10["package-lock.json\npackage-lock.json"]
+    n11["package.json\npackage.json"]
+    n12["src\nsrc"]
+    n13["main.js\nsrc\main.js"]
+    n14["tools\ntools"]
+    n15["cartographer.js\ntools\cartographer.js"]
+    n16["vite.config.js\nvite.config.js"]
     n1 --> n2
     n2 --> n3
-    n3 --> n4
+    n2 --> n4
     n1 --> n5
-    n1 --> n6
-    n1 --> n7
+    n5 --> n6
+    n6 --> n7
     n1 --> n8
-    n8 --> n9
+    n1 --> n9
+    n1 --> n10
+    n1 --> n11
+    n1 --> n12
+    n12 --> n13
+    n1 --> n14
+    n14 --> n15
+    n1 --> n16
   </div>
   <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({ startOnLoad:true, theme:'default' });</script>

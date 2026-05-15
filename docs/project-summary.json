@@ -1,0 +1,20 @@
+{
+  "counts": {
+    ".yml": 2,
+    ".md": 1,
+    "<noext>": 1,
+    ".html": 1,
+    ".json": 2,
+    ".js": 3
+  },
+  "dirCounts": {
+    ".copilot": 2,
+    ".github": 0,
+    ".github\\workflows": 1,
+    ".": 5,
+    "src": 1,
+    "tools": 1
+  },
+  "generated": "2026-05-15T12:34:37.893Z",
+  "repo": "training"
+}
