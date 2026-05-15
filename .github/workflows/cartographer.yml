@@ -1,5 +1,5 @@
 name: Cartographer
-name: Cartographer
+
 on:
   push:
     paths:
@@ -15,19 +15,6 @@ on:
       - 'index.html'
       - 'package.json'
   workflow_dispatch:
-    inputs:
-      task:
-        description: 'Task to run (map, summary, analyze)'
-        required: true
-        default: analyze
-      depth:
-        description: 'Traversal depth (number)'
-        required: false
-        default: '4'
-      commit:
-        description: 'Commit generated outputs'
-        required: false
-        default: 'false'
 
 jobs:
   run-cartographer:
@@ -44,12 +31,16 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Run Cartographer
+      - name: Install dependencies (if package.json exists)
         run: |
-          node tools/cartographer.js ${{ github.event.inputs.task }} --out docs --depth ${{ github.event.inputs.depth }} $([[ "${{ github.event.inputs.commit }}" == "true" ]] && echo --commit || true)
+          if [ -f package.json ]; then npm ci || npm install || true; fi
+
+      - name: Run Cartographer (default: analyze)
+        run: |
+          node tools/cartographer.js analyze --out docs --depth 4 || true
 
       - name: Commit outputs (if changed)
-        if: ${{ github.event.inputs.commit == 'true' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
