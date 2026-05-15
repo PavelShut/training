@@ -1,0 +1,14 @@
+trello:
+  board_id: "6a06e4e02ef7b3640c40c0c4"
+  board_shortlink: "VbIMepxG"
+  plans_dir: "docs/trello-plans"
+  plan_template: "docs/trello-plans/template.md"
+  ignore_labels: ["done"]
+  check_interval_minutes: 5
+  write_plans: true
+  commit_changes: true
+
+# Notes:
+# - board_id is the Trello board ID for Ball_Bounce (detected via /list-boards).
+# - The assistant will create one markdown plan per new card under docs/trello-plans/.
+# - To change behavior, edit this file.
